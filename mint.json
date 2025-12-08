@@ -437,22 +437,30 @@
   "search": {
     "prompt": "Search documentation..."
   },
-  "ai": {
-    "openai": {
-      "enabled": true
-    },
-    "anthropic": {
-      "enabled": true
-    }
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
     "raiseIssue": true
   },
-  "repo": {
-    "type": "github",
-    "url": "https://github.com/usebruno/bruno-docs"
+  "api": {
+    "baseUrl": "https://api.mintlify.com"
+  },
+  "versions": [],
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": false
   }
 }
 
