@@ -7,7 +7,7 @@ This is the migrated Bruno documentation using Mintlify.
 ### Prerequisites
 
 - Node.js v20.17.0 or higher
-- npm or pnpm
+- npm or pnp
 
 ### Installation
 
