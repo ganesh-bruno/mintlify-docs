@@ -1,10 +1,12 @@
----
-title: "Running a Collection "
----
-
 Bruno CLI allows you to run your API collections with ease, either by directly executing requests or using external data sources.
 
 This guide explains how to run entire collections, specific folders, and how to use data sources like CSV and JSON files to drive your API tests.
+
+<Warning>
+  **v3.0.0 Breaking Change**
+  
+  Starting from Bruno CLI v3.0.0, the default runtime mode is **Safe Mode**. If your collection requires Developer Mode features (external npm packages, filesystem access), pass the `--sandbox=developer` flag: `bru run --sandbox=developer`
+</Warning>
 
 ## Basic Collection Execution
 
@@ -127,6 +129,34 @@ If you need to use a specific environment, you can pass it with the `--env` opti
 
 ```bash copy
 bru run --env Local
+```
+
+### Using Global/Workspace-Level Environments
+
+Bruno CLI now supports referencing global/workspace-level environments when running a collection. This feature allows you to use environment variables defined at the workspace level rather than at the collection level.
+
+#### Using Global Environments
+
+Use the `--global-env` flag to reference a global/workspace-level environment:
+
+```bash copy
+bru run --global-env Beta
+```
+
+#### Specifying Workspace Path
+
+When your collection is not located at the workspace root, use the `--workspace-path` flag to specify the workspace path:
+
+```bash copy
+bru run --global-env Beta --workspace-path path/to/workspace/from/collection/root
+```
+
+#### Combined Usage
+
+You can combine global environments with collection-level environments:
+
+```bash copy
+bru run --env Local --global-env Production
 ```
 
 #### Passing Environment Variables

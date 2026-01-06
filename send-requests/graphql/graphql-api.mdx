@@ -1,9 +1,3 @@
----
-title: "GraphQL request"
----
-
-import BrunoButton from '../../../components/BrunoButton';
-
 Bruno provides the capability to send GraphQL requests, allowing you to interact with APIs that use the GraphQL query language.
 
 ### Create GraphQL request
@@ -22,6 +16,28 @@ The default method for working with GraphQL APIs is POST, but you can adjust it 
 Bruno provides a dedicated section called **Query** where you can write and execute all your GraphQL queries. This section is designed to make it easy for you to interact with the GraphQL API by allowing you to define the data you want to retrieve or manipulate.
 
 ![query-graphql](/images/screenshots/send-request/graphql/graphql-req-query.webp)
+
+**Example Query:**
+
+You can test this query using the Countries GraphQL API: `https://countries.trevorblades.com/graphql`
+
+```graphql
+query Query {
+  country(code: "BR") {
+    name
+    native
+    capital
+    emoji
+    currency
+    languages {
+      code
+      name
+    }
+  }
+}
+```
+
+This query fetches country information for Brazil (code: "BR"), including its name, native name, capital, emoji, currency, and languages.
 
 
 ## Get Started with GraphQL APIs

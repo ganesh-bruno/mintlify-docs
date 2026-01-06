@@ -1,7 +1,3 @@
----
-title: "JavaScript API Reference"
----
-
 Bruno offers powerful scripting capabilities that allow you to extend and automate your API testing workflows.
 Here is the complete set of API reference for the scripting feature in Bruno.
 
@@ -216,7 +212,7 @@ Below is the API documentation for the methods available on `req`
   ```
 
 <Info>
-The `onFail` function is only available in Developer mode and should be called in pre-request scripts.
+The `onFail` function is only available in Developer mode and should be called in pre-request scripts. When using Bruno CLI (v3.0.0+), pass the `--sandbox=developer` flag.
 </Info>
 
 ## Response
@@ -335,9 +331,9 @@ Below are the detailed descriptions for properties and methods available on the 
 
 - **`getUrl()`** - Get the response URL. In case of redirects, you will get the final URL which may be different from the original request URL if redirects were followed. This functionality is also available as a property `res.url`.
 
-  <Note>
+  <Warning>
     This method is only available in post-response scripts and test scripts.
-  </Note>
+  </Warning>
 
   **Returns:** Response URL as a string.
 
@@ -701,9 +697,9 @@ Here are all available utility methods:
 
 - **`runRequest(requestPathName)`** - Execute any request in the collection and retrieve the response directly within the script.
 
-  <Callout type="warning" emoji="">
+  <Warning>
     Avoid using `bru.runRequest()` in **collection-level scripts**. Since collection scripts run for all requests, calling `bru.runRequest()` from a collection script will trigger the target request, which will also execute the collection script again, creating an infinite loop.
-  </Callout>
+  </Warning>
 
   **Example:**
   ```javascript
@@ -826,9 +822,9 @@ Once you have a cookie jar instance, you can use the following methods:
 
 - **`jar.deleteCookie(url, name)`** - Delete a specific cookie by name.
 
-  <Callout type="warning" emoji="">
+  <Warning>
     When deleting cookies, the domain and path options must match the original cookie's domain and path for the deletion to be successful.
-  </Callout>
+  </Warning>
 
   **Example:**
   ```javascript

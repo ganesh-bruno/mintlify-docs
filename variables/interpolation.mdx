@@ -1,7 +1,3 @@
----
-title: "Variable Interpolation"
----
-
 Variable interpolation in Bruno allows you to use variables in your requests using the `{{variableName}}` syntax. Let's explore how interpolation works with different data types.
 
 ## Basic Interpolation
@@ -11,7 +7,9 @@ Variable interpolation in Bruno allows you to use variables in your requests usi
 ```javascript
 // Setting a string variable
 bru.setVar("greeting", "Hello World");
+```
 
+```http
 // Using in request
 GET http://api.example.com/{{greeting}}
 // Interpolates to: http://api.example.com/Hello World
@@ -22,7 +20,9 @@ GET http://api.example.com/{{greeting}}
 ```javascript
 // Setting a number variable
 bru.setVar("userId", 123);
+```
 
+```http
 // Using in request
 GET http://api.example.com/users/{{userId}}
 // Interpolates to: http://api.example.com/users/123
@@ -186,7 +186,9 @@ bru.setVar("searchParams", {
   offset: 0,
   filter: "active"
 });
+```
 
+```http
 // In URL
 GET http://api.example.com/users?limit={{searchParams.limit}}&offset={{searchParams.offset}}&filter={{searchParams.filter}}
 ```

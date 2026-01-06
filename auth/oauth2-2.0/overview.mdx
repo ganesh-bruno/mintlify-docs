@@ -1,13 +1,7 @@
----
-title: "OAuth 2.0 Authentication in Bruno"
----
-
-import BrunoButton from '../../../components/BrunoButton';
-
-<Callout type="warning" emoji="">  
+<Warning>  
   This OAuth 2 implementation is **specific to Bruno v2.x.x**. If using Bruno v.1.x.x, please see the [documentation for that version](/auth/oauth2/overview).
 
-</Callout>
+</Warning>
 
 This document describes the new OAuth 2 implementation available in `v2.x.x`. This new approach simplifies authentication handling compared to the previous version.
 
@@ -43,6 +37,16 @@ These settings can be configured separately for each OAuth2 implementation and h
   className="mt-4 mb-6 border border-gray-200 rounded-md"
   width="700"
 />
+
+### System Browser Support
+
+Bruno now supports OAuth 2.0 authentication using your system browser. This provides:
+
+- **Familiar UX**: Use your default browser with saved passwords and extensions
+- **Better Compatibility**: Enhanced support for OAuth providers that block embedded browsers
+- **Enhanced Security**: Leverage your browser's security features
+
+Learn more about [System Browser Support](/auth/oauth2-2.0/system-browser)
 
 ## Accessing OAuth2 Tokens in Scripts
 

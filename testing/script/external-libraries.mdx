@@ -1,7 +1,3 @@
----
-title: "External Libraries"
----
-
 Bruno allows you to load any npm module for use in your scripting workflows.
 
 ## Prerequisites
@@ -15,16 +11,18 @@ Before you begin, ensure that you have the following:
 
 The folder structure for this example will be:
 
-```
-bruno-collection/
-├── api-testing/
-├── openspec.yaml
-├── .spectral.yml
-├── package.json
-├── bruno.json
-└── node_modules/
-    └── spectral-cli
-```
+<FileTree>
+  <FileTree.Folder name="bruno-collection" defaultOpen>
+    <FileTree.Folder name="api-testing" />
+    <FileTree.File name="openspec.yaml" />
+    <FileTree.File name=".spectral.yml" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="bruno.json" />
+    <FileTree.Folder name="node_modules">
+      <FileTree.File name="spectral-cli" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
 
 ## Configuration
 

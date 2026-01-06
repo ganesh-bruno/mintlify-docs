@@ -1,7 +1,3 @@
----
-title: "How to Use OAuth2 for the Authorization Code Grant Type"
----
-
 OAuth2 authentication can be implemented in various ways, depending on the collection structure and specific requirements. You can configure OAuth2 authentication at collection, folder, and request level.
 
 ## OAuth2 Configuration
@@ -27,18 +23,12 @@ The **Callback URL** (also known as **Redirect URI**) is a critical component of
 
 The callback URL is the address where the OAuth2 provider (like Azure, Google, Facebook, etc.) will redirect the browser after successful authentication. This redirect contains a sensitive authorization code that Bruno extracts to complete the authentication process.
 
-### How Bruno Handles Callback URLs
+[Learn more about Callback URLs](/auth/oauth2-2.0/system-browser#custom-callback-server)
 
-Bruno does not actually redirect to the callback URL. Instead, it intercepts the redirect attempt and extracts the authorization code from the URL that the OAuth2 provider tried to redirect to.
+## Browser Support
+ Bruno supports oauth2 authentication using system browser and inbuilt browser[default]. You can enable system browser by selecting the **System Browser** option in the **Callback URL** section.
 
-This means:
-- **Bruno Support all formats**: It can handle any callback URL format that your OAuth2 provider allows
-- **No actual redirection**: Bruno never actually navigates to the callback URL
-- **Security maintained**: The authorization code is extracted securely without exposing it
-
-<Warning>
-If your application is already configured with OAuth2, use one of the existing callback URLs from your OAuth2 provider console. Do not add new URLs unless necessary.
-</Warning>
+Learn more about [System Browser Support](/auth/oauth2-2.0/system-browser)
 
 ## Token Configuration and Usage
 
@@ -55,13 +45,13 @@ Before getting the access token, configure how you want to use it in your reques
 
    These settings streamline your workflow by reducing manual token management. Note that token refresh operations require a valid refresh token to be available.
 
-<Note>
+<Warning>
   You may optionally assign a Token ID to your token. If you do, you can reference this token in requests using the format `{{$oauth2.<tokenId>.access_token}}` (replace `<tokenId>` with your Token ID).
-</Note>
+</Warning>
 
-<Note>
+<Info>
 If you use the same Token ID in multiple OAuth requests, Bruno will overwrite the existing token data. Make sure to use unique Token IDs for different OAuth configurations.
-</Note>
+</Info>
 
 2. Click **Get Access Token** to obtain and store the token.
 

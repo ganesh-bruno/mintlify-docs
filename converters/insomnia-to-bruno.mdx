@@ -1,14 +1,10 @@
----
-title: "Convert Insomnia collection to Bruno collection"
----
-
 ```javascript
 const { insomniaToBruno } = require('@usebruno/converters');
 
 const brunoCollection = insomniaToBruno(insomniaCollection);
 ```
 
-```javascript insomnia-to-bruno.js
+```javascript showLineNumbers filename="insomnia-to-bruno.js"
 const { insomniaToBruno } = require('@usebruno/converters');
 const { readFile, writeFile } = require('fs/promises');
 const path = require('path');

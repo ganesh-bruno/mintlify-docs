@@ -1,7 +1,3 @@
----
-title: "gRPC Request"
----
-
 Bruno provides comprehensive support for gRPC requests, enabling you to test and interact with gRPC services directly from the interface. With Bruno's gRPC support, you can:
 
 - **Add Proto files** for enhanced IntelliSense and method discovery
@@ -20,6 +16,9 @@ Bruno gRPC interface provides an intuitive way to interact with gRPC services. T
 ### Step 1: Create a gRPC Request
 
 1. Open the collection context menu and select **New Request** from the dropdown
+
+![create request dialog](/images/screenshots/get-started/bruno-basics/create_request/1-create-new-request.webp)
+
 2. Select **gRPC** as your request type
 3. Enter the **service endpoint** in the URL field (e.g., `https://grpcb.in/`)
 
@@ -29,9 +28,9 @@ Bruno gRPC interface provides an intuitive way to interact with gRPC services. T
  
 1. Click on **Reflection** and choose the **method** you want to call from the dropdown
 
-<Note> 
+<Warning> 
    **Refresh**: The gRPC refresh feature caches server information in memory for better performance. If you're running a local gRPC server and make changes to your service definitions, click the **Refresh** button next to the **Using Reflection** toggle to reload the latest changes from your server.
-</Note>
+</Warning>
 
 2. Use the **search functionality** in the dropdown to quickly find your desired method by typing the method name
 

@@ -1,7 +1,3 @@
----
-title: "Creating a JS File in Bruno"
----
-
 Bruno provides the ability to create JavaScript tests where you can modularize common code and reuse the tests across different requests or collections.
 
 This can be especially helpful in complex scripting scenarios where the same test will be run across multiple requests, or you're looking to leverage data that lays outside of Bruno.
@@ -27,12 +23,6 @@ Once your JS File has been created, you can now import the functions into any `S
 
 ![import-script](/images/screenshots/create-js-file/import-js-file.webp)
 
-Here:
-
-1. `getUserById` finds and returns a user object from the users array based on the provided id.
-2. `bru.setVar()` sets the `val` variable to the id of the fetched user.
-3. In the url `{{val}}` is replaced with value (e.g., 2), resulting in `https://reqres.in/api/users/2`.
-
 When the requests are run, you will see the script being invoked.
 
 ## Sharing Scripts Across Collections
@@ -40,7 +30,7 @@ When the requests are run, you will see the script being invoked.
 The `additionalContextRoots` feature in Bruno allows you to share scripts across multiple collections, eliminating code duplication and promoting better code organization. This is particularly useful when you have common utility functions or shared logic that you want to use across different collections.
 
 <Warning>
-Make sure you're in Developer Mode to use `additionalContextRoots` feature.
+Make sure you're in Developer Mode to use `additionalContextRoots` feature. When using Bruno CLI (v3.0.0+), pass the `--sandbox=developer` flag.
 </Warning>
 
 ### How to Use
@@ -63,7 +53,7 @@ project/
 
 In each collection's `bruno.json` file, add the `additionalContextRoots` configuration under the `scripts` object:
 
-```json
+```json showLineNumbers
 {
   "scripts": {
     "additionalContextRoots": ["./path/to/shared/scripts"]
@@ -75,7 +65,7 @@ In each collection's `bruno.json` file, add the `additionalContextRoots` configu
 
 Create your shared scripts in the specified directory. For example: `shared-scripts/utils.js`:
 
-```javascript
+```javascript showLineNumbers
 // shared-scripts/utils.js
 const formatDate = (date) => {
   return new Date(date).toISOString();
@@ -95,7 +85,7 @@ module.exports = {
 
 You can now use these shared scripts in your collection's pre-request or post-response scripts:
 
-```javascript
+```javascript showLineNumbers
 // In your collection's pre-request script
 const { formatDate, generateAuthToken } = require('../shared-scripts/utils.js');
 

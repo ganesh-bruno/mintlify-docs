@@ -1,43 +1,48 @@
----
-title: "Migrating from Postman"
----
-
 Bruno makes migrating from Postman easy. All you need to do is export your collections and environments and import them to Bruno.
 
 ## Collection Export
 
 Open Postman and select the collection you want to migrate. Click on the `···` followed by `View more actions` to open the dropdown menu and scroll down until you find `Export`, then click on it.
 
-<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', marginTop: '1rem' }}>
-  <img
+<div className="flex flex-wrap items-center mt-4">
+  <Image
     src="/images/screenshots/migration/postman/postman-pre-dropdown.webp"
     alt="Open the collection's dropdown menu"
-    style={{ width: '500px', borderRadius: '0.5rem' }}
+    width={500}
+    height={200}
+    className="rounded"
+    priority
   />
-  <img
+  <Image
     src="/images/screenshots/migration/postman/postman-dropdown.webp"
     alt="Find the export button"
-    style={{ width: '200px', marginLeft: '2.5rem', borderRadius: '0.5rem' }}
+    width={200}
+    height={200}
+    className="ml-10 rounded"
+    priority
   />
 </div>
 
 A popup dialog will appear, select either `Collection v2` or `Collection v2.1` format and click on the `Export` button.
 
-<img
+<Image
   src="/images/screenshots/migration/postman/postman-export-dialog.webp"
   alt="Export collection dialog"
-  style={{ width: '400px', marginTop: '1rem', borderRadius: '0.5rem' }}
+  width={400}
+  height={400}
+  className="rounded mt-4"
+  priority
 />
 
 The collection will be downloaded as a JSON file.
 
-Now simply follow the instructions for [Importing Collections](/get-started/import-export-data/import-collections) and you're done!
+Now simply follow the instructions for [Importing Collections](/import-export-data/import-collections) and you're done!
 
 ## Export Data Dump
 
-<Note>
-Bulk Import from Postman is included in Bruno Ultimate Edition
-</Note>
+<Callout type="default">
+  Bulk Import from Postman is included in Bruno Ultimate Edition
+</Callout>
 
 You can export a data dump of all your collections and environments in Postman. You can then import the data into any Bruno.
 
@@ -62,7 +67,7 @@ You can export a data dump of all your collections and environments in Postman. 
 - Designate a location for the collections and press `import`
 
 <Info>
-Although we have a translator for Postman scripts, it's always good practice to review the collections after import, especially if you are using deprecated Postman syntax in your scripts.
+  Although we have a translator for Postman scripts, it's always good practice to review the collections after import, especially if you are using deprecated Postman syntax in your scripts.
 </Info>
 
 ## Environment Import and Export
@@ -76,10 +81,13 @@ Environments in API clients are sets of variables that allow you to run requests
 3. Click on the three dots (**...**) next to the environment name
 4. Select **Export** from the dropdown menu
 
-<img
+<Image
   src="/images/screenshots/migration/postman/postman-environment.webp"
   alt="Open the environment's dropdown menu"
-  style={{ width: '400px', marginTop: '1rem', borderRadius: '0.5rem' }}
+  width={400}
+  height={400}
+  className="rounded mt-4"
+  priority
 />
 
 5. Choose a location to save the JSON file and click **Save**
@@ -97,7 +105,7 @@ Environments in API clients are sets of variables that allow you to run requests
 
 5. Click on **Import environment**
 
-![Import Postman Environment](/images/screenshots/get-started/import-export/import-postman-environment/import-environment.webp)
+![Export env](/images/screenshots/get-started/import-export/import-export-env/import-env.webp)
 
 6. Select the Postman environment JSON file you exported
 7. The environment will be imported with all its variables
@@ -107,16 +115,19 @@ Environments in API clients are sets of variables that allow you to run requests
 1. Open Bruno
 2. Click on the **Environments** icon in the top-right corner
 3. Click on **Configure environments** 
-4. Look for the **Import** button at the bottom-left corner
-
-![Bruno Environment](/images/screenshots/get-started/import-export/import-postman-environment/import-postman-environment-bottom.webp)
-
+4. Look for the **Import** button at the left sidebar
 5. Click on **Import environment**
+
+![Export env](/images/screenshots/get-started/import-export/import-export-env/import-env.webp)
+
 6. Select the Postman environment JSON file you exported
+
+![Import Environment](/images/screenshots/get-started/import-export/import_collection/import-env.webp)
+
 7. The environment will be added to your existing environments
 
 With environments properly configured, your API requests will work seamlessly across different deployment environments without manual changes.
 
 <Info>
-Note - Bruno environment names and variables must only contain alphanumeric characters, "-", "_", "." and cannot start with a digit. Non-conforming characters (such as "/") will be converted to "-". 
+  Note - Bruno environment names and variables must only contain alphanumeric characters, "-", "_", "." and cannot start with a digit. Non-conforming characters (such as "/") will be converted to "-". 
 </Info>

@@ -1,7 +1,3 @@
----
-title: "OAuth 2.0 Configuration"
----
-
 ## Overview
 
 Bruno allows you to configure OAuth2 authentication at multiple levels: collection, folder, and request. This guide explains how to set up and use OAuth2 authentication effectively across your API testing workflow.
@@ -21,6 +17,8 @@ The configuration process and all settings are identical across all levels. The 
    - Choose "OAuth 2.0" from the authentication dropdown
    - Select your preferred grant type
    - Fill in the required OAuth2 parameters
+
+![Select OAuth Grant Type](/images/screenshots/auth/1-select-oauth-grant-type.webp)
 
 ## Supported Grant Types
 
@@ -44,6 +42,8 @@ Bruno supports three OAuth2 grant types:
      - Configure the query parameter name (defaults to "access_token")
 3. Click "Get Access Token" to obtain and store the token.
 
+![Select OAuth Grant Type](/images/screenshots/auth/get-access-token.webp)
+
 ### Auto-fetch and Auto-refresh Settings
 
 Bruno provides two important token management features:
@@ -54,13 +54,15 @@ Bruno provides two important token management features:
 
 These settings can be found in the OAuth2 configuration panel and provide significant convenience for API testing workflows.
 
+![Auto-refresh Token](/images/screenshots/auth/auto-refresh.webp)
+
 <Info>
   You may optionally assign a Token ID to your token. If you do, you can reference this token in requests using the format `{{$oauth2.<tokenId>.access_token}}` (replace `<tokenId>` with your Token ID).
 </Info>
 
-<Note>
+<Info>
   If you use the same Token ID in multiple OAuth requests, Bruno will overwrite the existing token data. Make sure to use unique Token IDs for different OAuth configurations.
-</Note>
+</Info>
 
 ## Authentication Inheritance
 
@@ -70,13 +72,17 @@ Once you configure OAuth2 at the collection or folder level, you can inherit the
 
 1. Open your request and navigate to **Auth** tab
 2. Select **Inherit** from the authentication dropdown
-<Note>
+
+![Navigate Request and Select Inherit](/images/screenshots/auth/3-navigate-request-select-inherit.webp)
+
+<Warning>
 Bruno will automatically determine the source level:
 - **Inherit from Collection**: Uses the collection-level OAuth2 configuration
 - **Inherit from Folder**: Uses the folder-level OAuth2 configuration (if available)
-</Note>
+</Warning>
 
 The token will be automatically added to your request according to the inherited configuration.
+
 
 ### Inheritance Hierarchy
 
@@ -97,18 +103,22 @@ Folder-level OAuth2 configuration overrides collection-level settings for reques
 
 When a collection or folder has OAuth2 configured, individual requests can inherit the authentication:
 
-- Open request settings
-- Select "Auth" tab
-- Choose "Inherit from collection" or "Inherit from folder"
-- The token will be automatically added to the request according to your configuration (Headers or URL)
+1. Open and configure OAuth2 in collection level settings
 
-<video controls className="mt-10">
-  <source
-    src="/screenrecordings/oauth2-experimental/collection-level-via-inherit.mov"
-    type="video/mp4"
-  />
-  Your browser does not support the video tag.
-</video>
+![Select OAuth Grant Type](/images/screenshots/auth/1-select-oauth-grant-type.webp)
+
+2. Enter all required credentials depend upon type of oauth grant type (Authorization Code, Client Credentials, Password Credentials)
+3. Once you configure the OAuth2, you can click on the "Get Access Token" button to get the token
+
+![Enter Details to Get Token](/images/screenshots/auth/2-enter-details-to-get-token.webp)
+
+4. Navigate to the request auth tab and select inherit as type
+
+![Navigate Request and Select Inherit](/images/screenshots/auth/3-navigate-request-select-inherit.webp)
+
+5. The token will be automatically added to the request according to your configuration (Headers or URL)
+
+![Token Auto Added](/images/screenshots/auth/4-token-auto-added.webp)
 
 ### Method 2: Direct Token Reference
 
@@ -116,15 +126,16 @@ You can manually reference OAuth2 tokens in your requests using the variable for
 
 #### Example
 
-As shown in the video above, the Token ID value will be `{{$oauth2.credentials.access_token}}`
+1. Navigate to the collection level oauth2 settings and generate the token by clicking on the "Get Access Token" button
 
-<video controls className="mt-10">
-  <source
-    src="/screenrecordings/oauth2-experimental/collection-level-via-tokenid.mov"
-    type="video/mp4"
-  />
-  Your browser does not support the video tag.
-</video>
+![Get Access Token from Collection](/images/screenshots/auth/5-get-access-token-from-collection.webp)
+
+2. Navigate to the request and use the token id in the request headers or query parameters
+3. You can use the following format: `{{$oauth2.credentials.access_token}}`
+
+![Directly Use Token in Query Params](/images/screenshots/auth/6-directly-use-token-query-params.webp)
+
+
 
 <Info>
 You can click the 'Clear Cache' button to remove the stored token and request a new one at any time.

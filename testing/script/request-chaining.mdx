@@ -1,7 +1,3 @@
----
-title: "Request Chaining"
----
-
 Request chaining in Bruno allows you to execute multiple requests in sequence, pass data between them, and control the flow of your API testing workflow. This powerful feature enables you to build complex test scenarios where the output of one request becomes the input for the next.
 
 ## Overview
@@ -16,13 +12,13 @@ Bruno provides several methods for request chaining:
 
 Execute any request in your collection and retrieve the response directly within your script.
 
-<Callout type="warning" emoji="">
+<Warning>
   Avoid using `bru.runRequest()` in **collection-level scripts**. Since collection scripts run for all requests, calling `bru.runRequest()` from a collection script will trigger the target request, which will also execute the collection script again, creating an infinite loop.
-</Callout>
+</Warning>
 
 ### Syntax
 
-```javascript
+```javascript showLineNumbers
 const requestResponse = await bru.runRequest(
   "absolute/path/to/a/request/from/collection/root"
 );
@@ -45,7 +41,7 @@ Returns a response object containing:
 
 #### Basic Request Execution
 
-```javascript
+```javascript showLineNumbers {2,5-6}
 // Execute a request and get the response
 const response = await bru.runRequest("auth/login");
 
@@ -65,7 +61,7 @@ Send a programmatic HTTP request within your script. This allows you to make add
 
 ### Syntax
 
-```javascript
+```javascript showLineNumbers 
 await bru.sendRequest({
   method: string,
   url: string,
@@ -88,7 +84,7 @@ await bru.sendRequest({
 
 #### Basic HTTP Request
 
-```javascript
+```javascript showLineNumbers {1,8-9}
 await bru.sendRequest({
   method: 'GET',
   url: 'https://api.example.com/users',
@@ -108,7 +104,7 @@ await bru.sendRequest({
 
 #### POST Request with Data
 
-```javascript
+```javascript showLineNumbers {1-4,13}
 const userData = {
   name: 'John Doe',
   email: 'john@example.com'
@@ -146,7 +142,7 @@ Control the order in which requests are executed during collection runs. This al
 
 ### Syntax
 
-```javascript
+```javascript showLineNumbers
 bru.runner.setNextRequest("request-name");
 ```
 
@@ -165,7 +161,7 @@ bru.runner.setNextRequest("request-name");
 
 #### Conditional Request Execution
 
-```javascript
+```javascript showLineNumbers
 // In post-request script
 const response = res.getBody();
 

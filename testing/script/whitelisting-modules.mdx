@@ -1,7 +1,3 @@
----
-title: "Whitelisting Modules"
----
-
 The scripts can use both [external libraries](external-libraries) (via package.json and npm install) and certain [built-in](inbuilt-libraries) modules in Node.js (like fs, path, etc.). However, for security reasons, not all built-in Node.js modules are made accessible by default in Bruno scripts.
 
 ## Why Whitelisting
@@ -10,7 +6,7 @@ Bruno requires you to explicitly enable (whitelist) modules before they can be u
 
 You can manually enable or whitelist these modules by editing your `bruno.json` file. Make sure to add the `script` section to the file.
 
-```json bruno.json
+```json copy filename="bruno.json" showLineNumbers {6-11}
 {
   "version": "1",
   "name": "collection_name",
@@ -34,7 +30,7 @@ You can manually enable or whitelist these modules by editing your `bruno.json` 
 
 If you need to use multiple built-in or trusted third-party modules in your Bruno script, you can whitelist them by adding them to the `moduleWhitelist` array. For example:
 
-```json bruno.json
+```json copy filename="bruno.json" showLineNumbers
  "scripts": {
       "moduleWhitelist": ["crypto", "jwt", "child_process"],
       "filesystemAccess": {

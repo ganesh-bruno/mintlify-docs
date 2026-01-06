@@ -1,11 +1,7 @@
----
-title: "Convert WSDL to Bruno Collection"
----
-
 Bruno supports importing WSDL (Web Services Description Language) files to automatically generate SOAP API collections. This feature is particularly useful when working with legacy SOAP-based web services, as it eliminates the need for manual configuration of SOAP requests.
 
 <Info>
-WSDL import is available in Bruno v2.14.0 and later versions.
+  WSDL import is available in Bruno v2.14.0 and later versions.
 </Info>
 
 ## What Gets Generated
@@ -45,7 +41,7 @@ When you import a WSDL file, Bruno automatically:
 3. Each operation will be a separate request with a pre-configured SOAP envelope
 
 <Info>
-Bruno automatically validates the WSDL structure during import. If there are any issues, you'll receive clear error messages.
+  Bruno automatically validates the WSDL structure during import. If there are any issues, you'll receive clear error messages.
 </Info>
 
 ## Import WSDL via CLI
@@ -69,7 +65,7 @@ bru import wsdl ./wsdl-files/user-service.wsdl --output ./collections/soap/users
 ```
 
 <Info>
-For detailed CLI import options and examples, see the [CLI Import Guide](/bru-cli/import).
+  For detailed CLI import options and examples, see the [CLI Import Guide](/bru-cli/import).
 </Info>
 
 ## Programmatic Conversion
