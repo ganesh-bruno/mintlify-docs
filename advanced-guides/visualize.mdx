@@ -1,3 +1,7 @@
+---
+title: "Response Visualization"
+---
+
 Bruno provides a powerful visualization feature that allows you to display API response data in a more readable and interactive format using the `bru.visualize` function. This feature supports multiple providers and formats to help you analyze and present your API data effectively.
 
 ```javascript
@@ -25,7 +29,6 @@ You can render tables using different providers like `ag-grid` and `react-table`
 *Example:*
 
 ![ag-grid](/images/screenshots/visualization/ag-grid.webp)
-
 
 ```javascript copy
 const rowData = [
@@ -55,7 +58,6 @@ This will render a table using the ag-grid provider with filters enabled on all 
 
 ![react-table](/images/screenshots/visualization/react-table.webp)
 
-
 ```javascript copy
 const rowData1 = Array.from({ length: 2500 })
   .map((_) => [
@@ -63,7 +65,6 @@ const rowData1 = Array.from({ length: 2500 })
     { firstName: 'Tandy', lastName: 'Miller', age: 40, visits: 40 },
     { firstName: 'Joe', lastName: 'Dirte', age: 45, visits: 20 },
   ]).flat();
-
 
 const columnDefinitions1 = [
   {

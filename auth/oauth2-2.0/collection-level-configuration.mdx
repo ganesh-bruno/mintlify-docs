@@ -1,3 +1,7 @@
+---
+title: "OAuth 2.0 Configuration"
+---
+
 ## Overview
 
 Bruno allows you to configure OAuth2 authentication at multiple levels: collection, folder, and request. This guide explains how to set up and use OAuth2 authentication effectively across your API testing workflow.
@@ -83,7 +87,6 @@ Bruno will automatically determine the source level:
 
 The token will be automatically added to your request according to the inherited configuration.
 
-
 ### Inheritance Hierarchy
 
 Bruno follows a specific hierarchy for authentication inheritance:
@@ -134,8 +137,6 @@ You can manually reference OAuth2 tokens in your requests using the variable for
 3. You can use the following format: `{{$oauth2.credentials.access_token}}`
 
 ![Directly Use Token in Query Params](/images/screenshots/auth/6-directly-use-token-query-params.webp)
-
-
 
 <Info>
 You can click the 'Clear Cache' button to remove the stored token and request a new one at any time.

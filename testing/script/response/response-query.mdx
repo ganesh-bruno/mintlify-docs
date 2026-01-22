@@ -1,3 +1,7 @@
+---
+title: "Response Query"
+---
+
 The `res` object that is available inside the [vars](../vars), [assertions](../../tests/assertions), [scripting](../getting-started) and [testing](../../tests/introduction) contexts can be queried for data by invoking it like below.
 
 Think of it as `lodash.get()` on steroids
@@ -78,18 +82,10 @@ res('..items[0].amount')
 res('..items[?].amount', i => i.amount > 20)
 ```
 
-
 ### Array mapping [?] with corresponding mapper function
 
 **Example:**
 ```javascript
 res('..items..amount[?]', amt => amt + 10)
 ```
-
-
-
-
-
-
-
 

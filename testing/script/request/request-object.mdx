@@ -1,3 +1,7 @@
+---
+title: "Request Object"
+---
+
 The `req` object represents the HTTP request made to the server. It contains various properties that define the request details.
 
 ## `req` Sub-Object
@@ -48,7 +52,6 @@ The `url` property of the `req` object represents the Uniform Resource Locator (
 console.log(req.url); // Output: "{{base.url}}/users/2?queryTest=queryResult"
 ```
 
-
 ## Example Usage
 
 ```javascript
@@ -72,7 +75,6 @@ const req = {
   url: '{{base.url}}/users/2?queryTest=queryResult',
   vars: {}
 };
-
 
 // Accessing request properties
 console.log(req.method); // Output: "GET"

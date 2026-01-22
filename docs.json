@@ -26,7 +26,7 @@
                 ]
               },
               {
-                "group": "Getting Started Guide",
+                "group": "Getting Started",
                 "pages": [
                   {
                     "group": "Bruno Basics",
@@ -54,11 +54,10 @@
                     "group": "Configure",
                     "pages": [
                       "get-started/configure/settings",
-                      "get-started/configure/proxy-config"
+                      "get-started/configure/proxy-config",
+                      "get-started/configure/javascript-sandbox"
                     ]
-                  },
-                  "get-started/history",
-                  "get-started/javascript-sandbox"
+                  }
                 ]
               },
               {
@@ -128,7 +127,8 @@
                             ]
                           }
                         ]
-                      }
+                      },
+                      "send-requests/history"
                     ]
                   },
                   {
@@ -182,7 +182,6 @@
                           "testing/script/script-flow",
                           "testing/script/inbuilt-libraries",
                           "testing/script/external-libraries",
-                          "testing/script/whitelisting-modules",
                           "testing/script/js-file",
                           "testing/script/dynamic-variables",
                           "testing/script/request-chaining",
@@ -344,6 +343,14 @@
                     ]
                   },
                   {
+                    "group": "OpenCollection YAML",
+                    "pages": [
+                      "opencollection-yaml/overview",
+                      "opencollection-yaml/samples",
+                      "opencollection-yaml/structure-reference"
+                    ]
+                  },
+                  {
                     "group": "Converters",
                     "pages": [
                       "converters/overview",
@@ -403,8 +410,7 @@
                 "group": "Advanced Guides",
                 "pages": [
                   "advanced-guides/starter-guide",
-                  "advanced-guides/visualize",
-                  "advanced-guides/working-with-bigint"
+                  "advanced-guides/visualize"
                 ]
               }
             ]
@@ -427,7 +433,7 @@
                 ]
               },
               {
-                "group": "Getting Started Guide",
+                "group": "Getting Started",
                 "pages": [
                   {
                     "group": "Bruno Basics",
@@ -454,11 +460,10 @@
                     "group": "Configure",
                     "pages": [
                       "v2/get-started/configure/settings",
-                      "v2/get-started/configure/proxy-config"
+                      "v2/get-started/configure/proxy-config",
+                      "v2/get-started/configure/javascript-sandbox"
                     ]
-                  },
-                  "v2/get-started/history",
-                  "v2/get-started/javascript-sandbox"
+                  }
                 ]
               },
               {
@@ -528,7 +533,8 @@
                             ]
                           }
                         ]
-                      }
+                      },
+                      "v2/send-requests/history"
                     ]
                   },
                   {
@@ -581,7 +587,6 @@
                           "v2/testing/script/script-flow",
                           "v2/testing/script/inbuilt-libraries",
                           "v2/testing/script/external-libraries",
-                          "v2/testing/script/whitelisting-modules",
                           "v2/testing/script/js-file",
                           "v2/testing/script/dynamic-variables",
                           "v2/testing/script/request-chaining",
@@ -741,6 +746,14 @@
                     ]
                   },
                   {
+                    "group": "OpenCollection YAML",
+                    "pages": [
+                      "v2/opencollection-yaml/overview",
+                      "v2/opencollection-yaml/samples",
+                      "v2/opencollection-yaml/structure-reference"
+                    ]
+                  },
+                  {
                     "group": "Converters",
                     "pages": [
                       "v2/converters/overview",
@@ -800,8 +813,7 @@
                 "group": "Advanced Guides",
                 "pages": [
                   "v2/advanced-guides/starter-guide",
-                  "v2/advanced-guides/visualize",
-                  "v2/advanced-guides/working-with-bigint"
+                  "v2/advanced-guides/visualize"
                 ]
               }
             ]
@@ -880,5 +892,262 @@
     "thumbsRating": true,
     "suggestEdit": true,
     "raiseIssue": true
-  }
+  },
+  "redirects": [
+    {
+      "source": "/introduction",
+      "destination": "/introduction/what-is-bruno",
+      "permanent": true
+    },
+    {
+      "source": "/introduction/getting-started",
+      "destination": "/introduction/what-is-bruno",
+      "permanent": true
+    },
+    {
+      "source": "/introduction/support",
+      "destination": "/introduction/feedback-community",
+      "permanent": true
+    },
+    {
+      "source": "/manifesto.html",
+      "destination": "/introduction/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/manifesto",
+      "destination": "/introduction/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/get-started/javascript-sandbox",
+      "destination": "/get-started/configure/javascript-sandbox",
+      "permanent": true
+    },
+    {
+      "source": "/javascript-sandbox",
+      "destination": "/get-started/configure/javascript-sandbox",
+      "permanent": true
+    },
+    {
+      "source": "/testing/javascript-sandbox",
+      "destination": "/get-started/configure/javascript-sandbox",
+      "permanent": true
+    },
+    {
+      "source": "/get-started/history",
+      "destination": "/send-requests/history",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental",
+      "destination": "/auth/oauth2-2.0/overview",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental/overview",
+      "destination": "/auth/oauth2-2.0/overview",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental/collection-level-configuration",
+      "destination": "/auth/oauth2-2.0/collection-level-configuration",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental/authorization-code",
+      "destination": "/auth/oauth2-2.0/authorization-code",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental/client-credentials",
+      "destination": "/auth/oauth2-2.0/client-credentials",
+      "permanent": true
+    },
+    {
+      "source": "/auth/oauth2-experimental/password-credentials",
+      "destination": "/auth/oauth2-2.0/password-credentials",
+      "permanent": true
+    },
+    {
+      "source": "/tools/translator",
+      "destination": "/get-started/import-export-data/script-translator",
+      "permanent": true
+    },
+    {
+      "source": "/migration-imports/postman",
+      "destination": "/get-started/import-export-data/postman-migration",
+      "permanent": true
+    },
+    {
+      "source": "/migration-imports/introduction",
+      "destination": "/get-started/import-export-data/import-collections",
+      "permanent": true
+    },
+    {
+      "source": "/get-started/import-export-data/safe-mode",
+      "destination": "/get-started/configure/javascript-sandbox",
+      "permanent": true
+    },
+    {
+      "source": "/git-integration/using-gui",
+      "destination": "/git-integration/using-gui/intro",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/request/request-object",
+      "destination": "/testing/script/request/request-object",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/response/response-object",
+      "destination": "/testing/script/response/response-object",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/request/sync-requests",
+      "destination": "/testing/script/request/sync-requests",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/vars.html",
+      "destination": "/testing/script/vars",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/vars",
+      "destination": "/testing/script/vars",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/getting-started",
+      "destination": "/testing/script/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/javascript-reference",
+      "destination": "/testing/script/javascript-reference",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/inbuilt-libraries",
+      "destination": "/testing/script/inbuilt-libraries",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/external-libraries",
+      "destination": "/testing/script/external-libraries",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/introduction",
+      "destination": "/testing/script/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/sync-requests",
+      "destination": "/testing/script/request/sync-requests",
+      "permanent": true
+    },
+    {
+      "source": "/scripting/response-query",
+      "destination": "/testing/script/response/response-query",
+      "permanent": true
+    },
+    {
+      "source": "/testing/introduction.html",
+      "destination": "/testing/tests/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/testing/assertions",
+      "destination": "/testing/tests/assertions",
+      "permanent": true
+    },
+    {
+      "source": "/testing/introduction",
+      "destination": "/testing/tests/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/testing/javascript-reference",
+      "destination": "/testing/script/javascript-reference",
+      "permanent": true
+    },
+    {
+      "source": "/testing/assertions.html",
+      "destination": "/testing/tests/assertions",
+      "permanent": true
+    },
+    {
+      "source": "/testing/javascript-reference.html",
+      "destination": "/testing/script/javascript-reference",
+      "permanent": true
+    },
+    {
+      "source": "/testing",
+      "destination": "/testing/tests/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/testing/script",
+      "destination": "/testing/script/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/testing/automate-test",
+      "destination": "/testing/automate-test/overview",
+      "permanent": true
+    },
+    {
+      "source": "/testing/tests",
+      "destination": "/testing/tests/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/license-management",
+      "destination": "/license-overview",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/overview",
+      "destination": "/license-overview",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/golden-edition/individual/activate-license",
+      "destination": "/license-end-users/activate-license",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/organization/manage-licenses",
+      "destination": "/license-administrators/license-portal",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/organization/activate-license",
+      "destination": "/license-end-users/activate-license",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/license-administrators/license-portal",
+      "destination": "/license-administrators/license-portal",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/license-administrators/scim-provisioning/overview",
+      "destination": "/license-administrators/scim-provisioning/overview",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/license-administrators/scim-provisioning/configure-scim-with-okta",
+      "destination": "/license-administrators/scim-provisioning/configure-scim-with-okta",
+      "permanent": true
+    },
+    {
+      "source": "/license-management/license-administrators/scim-provisioning/bruno-scim-api",
+      "destination": "/license-administrators/scim-provisioning/bruno-scim-api",
+      "permanent": true
+    }
+  ]
 }

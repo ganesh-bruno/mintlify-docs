@@ -1,3 +1,7 @@
+---
+title: "Microsoft Entra ID SCIM provisioning with Bruno"
+---
+
 This guide will walk you through setting up SCIM (System for Cross-domain Identity Management) provisioning with Bruno using Microsoft Entra ID (formerly Azure Active Directory).
 
 <Info>
@@ -116,7 +120,6 @@ The initial provisioning cycle will begin immediately. Microsoft Entra ID will c
 **Note**: Microsoft Entra ID syncs changes every 40 minutes. For immediate provisioning of specific users, you can use the [on-demand provisioning feature](https://learn.microsoft.com/entra/identity/app-provisioning/provision-on-demand) in Microsoft Entra ID.
 </Info>
 
-
 ## Deprovision users from Bruno
 
 1. To remove a user's access to Bruno, navigate to **Users and groups** in your Bruno application
@@ -126,7 +129,6 @@ The initial provisioning cycle will begin immediately. Microsoft Entra ID will c
 3. The user's license will be deactivated during the next provisioning cycle (within 40 minutes), and they will receive an email notification
 
 <Image src="/images/screenshots/sso-scim-management/okta/okta-swa-14.webp" alt="License portal login" width={800} height={600} className="rounded mt-4" />
-
 
 <Info>
 **Note**: Microsoft Entra ID syncs changes every 40 minutes. For immediate provisioning of specific users, you can use the [on-demand provisioning feature](https://learn.microsoft.com/entra/identity/app-provisioning/provision-on-demand) in Microsoft Entra ID.
@@ -144,7 +146,6 @@ The initial provisioning cycle will begin immediately. Microsoft Entra ID will c
    - Users and groups that were created, updated, or deleted
    - Any errors that occurred during provisioning
    - Timestamps for each operation
-
 
 ### Common issues
 

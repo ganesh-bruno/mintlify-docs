@@ -2,6 +2,8 @@
 title: "Bruno Starter Guide"
 ---
 
+import { BrunoButton } from "/snippets/BrunoButton.jsx";
+
 Bruno offers a fast, Git-friendly approach to API development that's fundamentally different from traditional API clients. This comprehensive guide will take you from your first request to advanced automation through structured, hands-on learning.
 
 ## What You'll Learn
@@ -22,17 +24,11 @@ The Bruno Starter Guide is available on GitHub repository with hands-on challeng
 
 For the full hands-on experience, import the Bruno Starter Guide collection by either clicking the `Fetch in Bruno` button below, or cloning the Git repository where the collection is stored:
 
-<div className="flex justify-center my-10">
-  <a href="https://fetch.usebruno.com?url=https%3A%2F%2Fgithub.com%2Fbruno-collections%2Fbruno-starter-guide.git" target="_blank" rel="noopener noreferrer">
-    <img 
-      src="https://fetch.usebruno.com/button.svg" 
-      alt="Fetch in Bruno" 
-      style={{ width: '160px', height: '40px' }} 
-      width="160" 
-      height="40"
-    />
-  </a>
-</div>
+<BrunoButton 
+  collectionUrl="https://github.com/bruno-collections/bruno-starter-guide.git"
+  width={160}
+  height={40}
+/>
 
 This repository contains:
 - Structured challenges

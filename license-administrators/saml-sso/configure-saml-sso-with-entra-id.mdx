@@ -1,3 +1,7 @@
+---
+title: "Configure SAML SSO with Microsoft Entra ID"
+---
+
 This guide walks you through configuring SAML Single Sign-On for Bruno using Microsoft Entra ID (formerly Azure Active Directory) as your identity provider.
 
 <Info>
@@ -116,13 +120,11 @@ On the **Attributes & Claims** page:
 
 <Image src="/images/screenshots/sso-scim-management/entra/entra-sso-7.webp" alt="Configure roles claim in Entra ID" width={800} height={600} className="rounded mt-4" />
 
-
 **Important**: The role value sent by Entra ID will be mapped to Bruno access levels in the License Portal's SSO Settings. You'll configure which role values correspond to admin or user access in Bruno (see Step 2 in the Bruno configuration section below).
 
 **Example Scenarios:**
 - If you set a static value of `Engineering`, you'll add the value `Engineering` in the Bruno License Portal to the corresponding Admin or User role field
 - If you map to `user.department` and a user's department is `IT`, you'll add `IT` to the appropriate role field in the Bruno License Portal
-
 
 #### Configuring the `fullName` claim 
 
@@ -209,7 +211,6 @@ Return to the **Attributes & Claims** page and verify the following:
 
 <Image src="/images/screenshots/sso-scim-management/okta/okta-sso-11.webp" alt="Configure role mapping in Bruno License Portal" width={800} height={600} className="rounded mt-4" />
 
-
 <Info>
 **How Role Mapping Works:**
 
@@ -249,7 +250,6 @@ The role value you configured in Entra ID's `roles` claim will be sent in the SA
 3. Select the users or groups that should have access to Bruno, if using [App Roles](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-use-app-roles-customers#app-roles) they can be assigned here
 4. Click **Assign**
 
-
 ### Test SSO Login
 
 1. Navigate to the Bruno License Portal (https://license.usebruno.com/)
@@ -260,7 +260,6 @@ The role value you configured in Entra ID's `roles` claim will be sent in the SA
 <Image src="/images/screenshots/sso-scim-management/saml-sso/bruno-lic-mgr-loginwsso.webp" alt="Login with SSO in Bruno License Portal" width={800} height={600} className="rounded mt-4" />
 
 5. If your user is an admin in Bruno and contains the correct role mapping, you should be redirected back to the Bruno License Portal
-
 
 ## Next Steps
 
