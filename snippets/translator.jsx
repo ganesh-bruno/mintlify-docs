@@ -1,102 +1,100 @@
-import { useEffect, useState } from "react";
-
-// Postman to Bruno script translator
-const postmanTranslation = (script) => {
-  if (!script || script.trim() === '') {
-    return script;
-  }
-
-  try {
-    let translatedScript = script;
-
-    // Basic Postman to Bruno API conversions
-    const conversions = [
-      // Test function conversions
-      {
-        pattern: /pm\.test\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*function\s*\(\s*\)\s*\{/g,
-        replacement: 'test("$1", function() {'
-      },
-      // Response status conversions
-      {
-        pattern: /pm\.response\.to\.have\.status\((\d+)\)/g,
-        replacement: 'expect(res.getStatus()).to.equal($1)'
-      },
-      // Response body JSON access
-      {
-        pattern: /pm\.response\.json\(\)/g,
-        replacement: 'res.getBody()'
-      },
-      // Environment variable operations
-      {
-        pattern: /pm\.environment\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
-        replacement: 'bru.setEnvVar("$1", $2)'
-      },
-      {
-        pattern: /pm\.environment\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
-        replacement: 'bru.getEnvVar("$1")'
-      },
-      // Global variable operations
-      {
-        pattern: /pm\.globals\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
-        replacement: 'bru.setVar("$1", $2)'
-      },
-      {
-        pattern: /pm\.globals\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
-        replacement: 'bru.getVar("$1")'
-      },
-      // Collection variable operations
-      {
-        pattern: /pm\.collectionVariables\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
-        replacement: 'bru.setVar("$1", $2)'
-      },
-      {
-        pattern: /pm\.collectionVariables\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
-        replacement: 'bru.getVar("$1")'
-      },
-      // Response time assertions
-      {
-        pattern: /pm\.expect\s*\(\s*pm\.response\.responseTime\s*\)\.to\.be\.below\s*\(\s*(\d+)\s*\)/g,
-        replacement: 'expect(res.getResponseTime()).to.be.below($1)'
-      },
-      // Response header assertions
-      {
-        pattern: /pm\.response\.to\.have\.header\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
-        replacement: 'expect(res.getHeader("$1")).to.exist'
-      },
-      // Response body text
-      {
-        pattern: /pm\.response\.text\(\)/g,
-        replacement: 'res.getBody()'
-      },
-      // Basic expect conversions
-      {
-        pattern: /pm\.expect\s*\(\s*([^)]+)\s*\)\.to\.eql\s*\(\s*([^)]+)\s*\)/g,
-        replacement: 'expect($1).to.equal($2)'
-      },
-      {
-        pattern: /pm\.expect\s*\(\s*([^)]+)\s*\)\.to\.equal\s*\(\s*([^)]+)\s*\)/g,
-        replacement: 'expect($1).to.equal($2)'
-      },
-      // Response size
-      {
-        pattern: /pm\.response\.responseSize/g,
-        replacement: 'res.getSize()'
-      }
-    ];
-
-    // Apply all conversions
-    conversions.forEach(({ pattern, replacement }) => {
-      translatedScript = translatedScript.replace(pattern, replacement);
-    });
-
-    return translatedScript;
-  } catch (error) {
-    console.error('Translation error:', error);
-    return script;
-  }
-};
-
 export const Translator = () => {
+  // Postman to Bruno script translator
+  const postmanTranslation = (script) => {
+    if (!script || script.trim() === '') {
+      return script;
+    }
+
+    try {
+      let translatedScript = script;
+
+      // Basic Postman to Bruno API conversions
+      const conversions = [
+        // Test function conversions
+        {
+          pattern: /pm\.test\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*function\s*\(\s*\)\s*\{/g,
+          replacement: 'test("$1", function() {'
+        },
+        // Response status conversions
+        {
+          pattern: /pm\.response\.to\.have\.status\((\d+)\)/g,
+          replacement: 'expect(res.getStatus()).to.equal($1)'
+        },
+        // Response body JSON access
+        {
+          pattern: /pm\.response\.json\(\)/g,
+          replacement: 'res.getBody()'
+        },
+        // Environment variable operations
+        {
+          pattern: /pm\.environment\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
+          replacement: 'bru.setEnvVar("$1", $2)'
+        },
+        {
+          pattern: /pm\.environment\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
+          replacement: 'bru.getEnvVar("$1")'
+        },
+        // Global variable operations
+        {
+          pattern: /pm\.globals\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
+          replacement: 'bru.setVar("$1", $2)'
+        },
+        {
+          pattern: /pm\.globals\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
+          replacement: 'bru.getVar("$1")'
+        },
+        // Collection variable operations
+        {
+          pattern: /pm\.collectionVariables\.set\s*\(\s*["'`]([^"'`]+)["'`]\s*,\s*([^)]+)\)/g,
+          replacement: 'bru.setVar("$1", $2)'
+        },
+        {
+          pattern: /pm\.collectionVariables\.get\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
+          replacement: 'bru.getVar("$1")'
+        },
+        // Response time assertions
+        {
+          pattern: /pm\.expect\s*\(\s*pm\.response\.responseTime\s*\)\.to\.be\.below\s*\(\s*(\d+)\s*\)/g,
+          replacement: 'expect(res.getResponseTime()).to.be.below($1)'
+        },
+        // Response header assertions
+        {
+          pattern: /pm\.response\.to\.have\.header\s*\(\s*["'`]([^"'`]+)["'`]\s*\)/g,
+          replacement: 'expect(res.getHeader("$1")).to.exist'
+        },
+        // Response body text
+        {
+          pattern: /pm\.response\.text\(\)/g,
+          replacement: 'res.getBody()'
+        },
+        // Basic expect conversions
+        {
+          pattern: /pm\.expect\s*\(\s*([^)]+)\s*\)\.to\.eql\s*\(\s*([^)]+)\s*\)/g,
+          replacement: 'expect($1).to.equal($2)'
+        },
+        {
+          pattern: /pm\.expect\s*\(\s*([^)]+)\s*\)\.to\.equal\s*\(\s*([^)]+)\s*\)/g,
+          replacement: 'expect($1).to.equal($2)'
+        },
+        // Response size
+        {
+          pattern: /pm\.response\.responseSize/g,
+          replacement: 'res.getSize()'
+        }
+      ];
+
+      // Apply all conversions
+      conversions.forEach(({ pattern, replacement }) => {
+        translatedScript = translatedScript.replace(pattern, replacement);
+      });
+
+      return translatedScript;
+    } catch (error) {
+      console.error('Translation error:', error);
+      return script;
+    }
+  };
+
   const [mounted, setMounted] = useState(false);
   const [pmCode, setPmCode] = useState('// translate your awesome code');
   const [translatedCode, setTranslatedCode] = useState('');
@@ -248,19 +246,38 @@ export const Translator = () => {
           onClick={copyClipboard}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#4F46E5',
-            color: 'white',
-            border: 'none',
+            backgroundColor: isDark ? '#3F3F46' : '#E4E4E7',
+            color: isDark ? '#FAFAFA' : '#18181B',
+            border: `1px solid ${borderColor}`,
             borderRadius: '0.375rem',
             cursor: 'pointer',
             fontSize: '0.875rem',
             fontWeight: '500',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.5rem',
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = isDark ? '#52525B' : '#D4D4D8';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = isDark ? '#3F3F46' : '#E4E4E7';
           }}
         >
-          <span>📋</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
           Copy Bruno Code
         </button>
       </div>
@@ -286,7 +303,7 @@ export const Translator = () => {
           flexDirection: 'column'
         }}>
           <div style={{
-            padding: '0.5rem',
+            padding: '0.1rem 0.5rem',
             backgroundColor: isDark ? '#252526' : '#F3F4F6',
             borderBottom: `1px solid ${borderColor}`,
             fontSize: '0.75rem',
@@ -294,9 +311,17 @@ export const Translator = () => {
             color: textColor,
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.375rem'
           }}>
-            <span>📮</span>
+            <img
+              src="/images/postman.svg"
+              alt="Postman"
+              style={{
+                height: '18px',
+                width: '17px',
+                display: 'block'
+              }}
+            />
             <span>Postman Script</span>
           </div>
           <textarea
@@ -328,7 +353,7 @@ export const Translator = () => {
           flexDirection: 'column'
         }}>
           <div style={{
-            padding: '0.5rem',
+            padding: '0.1rem 0.5rem',
             backgroundColor: isDark ? '#252526' : '#F3F4F6',
             borderBottom: !isRowMode ? `1px solid ${borderColor}` : 'none',
             fontSize: '0.75rem',
@@ -336,9 +361,17 @@ export const Translator = () => {
             color: textColor,
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.375rem'
           }}>
-            <span>🧡</span>
+            <img
+              src="/images/bruno.svg"
+              alt="Bruno"
+              style={{
+                height: '18px',
+                width: '18px',
+                display: 'block'
+              }}
+            />
             <span>Bruno Script</span>
           </div>
           <textarea
